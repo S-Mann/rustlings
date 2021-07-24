@@ -17,4 +17,10 @@ fn main() {
     while let Some(value) = optional_values_vec.pop() {
         println!("current value: {}", value.unwrap());
     }
+    /*
+    // Better way
+    while let Some(Some(value)) = optional_values_vec.pop() {
+        println!("current value: {}", value);
+    }
+     */
 }
