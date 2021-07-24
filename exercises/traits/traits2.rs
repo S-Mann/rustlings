@@ -1,22 +1,27 @@
-// traits2.rs
-//
-// Your task is to implement the trait
-// `AppendBar' for a vector of strings.
-//
-// To implement this trait, consider for
-// a moment what it means to 'append "Bar"'
-// to a vector of strings.
-//
-// No boiler plate code this time,
-// you can do this!
-
-// I AM NOT DONE
-
 trait AppendBar {
     fn append_bar(self) -> Self;
 }
 
-//TODO: Add your code here
+impl AppendBar for Vec<String> {
+    fn append_bar(self) -> Self {
+        let mut new_result: Vec<String> = vec![];
+        for val in self.into_iter() {
+            new_result.push(val)
+        }
+        new_result.push(String::from("Bar"));
+        new_result
+    }
+}
+/*
+// Better solution
+impl AppendBar for Vec<String> {
+    fn append_bar(self) -> Self {
+        let mut new_result = self;
+        new_result.push(String::from("Bar"));
+        new_result
+    }
+}
+ */
 
 #[cfg(test)]
 mod tests {
